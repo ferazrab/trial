@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Feraz Rab – Semiconductor Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --lime:#B8EF43;
+    --lime-dim:#8fc22e;
+    --bg:#0D0D0D;
+    --bg2:#141414;
+    --bg3:#1A1A1A;
+    --bg4:#222222;
+    --border:#2A2A2A;
+    --text:#F0F0F0;
+    --muted:#888;
+    --muted2:#555;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
+  a{text-decoration:none;color:inherit}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .nav-logo{font-size:13px;font-weight:600;letter-spacing:0.08em;color:var(--lime);text-transform:uppercase}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{font-size:13px;color:var(--muted);transition:color 0.2s;letter-spacing:0.04em}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{background:var(--lime);color:#0D0D0D;font-size:12px;font-weight:700;padding:7px 18px;border-radius:6px;letter-spacing:0.06em;text-transform:uppercase;transition:opacity 0.2s}
+  .nav-cta:hover{opacity:0.85}
+
+  /* SECTIONS */
+  section{padding:100px 5%}
+  .inner{max-width:1100px;margin:0 auto}
+
+  /* HERO */
+  #hero{padding-top:140px;padding-bottom:120px;border-bottom:1px solid var(--border)}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:12px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:32px}
+  .hero-dot{width:7px;height:7px;border-radius:50%;background:var(--lime);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+  h1{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.05;letter-spacing:-0.03em;margin-bottom:10px}
+  h1 span{color:var(--lime)}
+  .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--muted);max-width:560px;font-weight:300;margin-bottom:40px;line-height:1.6}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+  .btn-primary{background:var(--lime);color:#0D0D0D;font-size:13px;font-weight:700;padding:12px 28px;border-radius:8px;letter-spacing:0.04em;text-transform:uppercase;transition:opacity 0.2s}
+  .btn-primary:hover{opacity:0.85}
+  .btn-ghost{background:transparent;color:var(--text);font-size:13px;font-weight:500;padding:12px 28px;border-radius:8px;border:1px solid var(--border);transition:border-color 0.2s}
+  .btn-ghost:hover{border-color:var(--muted)}
+  .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .stat{background:var(--bg2);padding:24px 20px}
+  .stat-num{font-size:28px;font-weight:700;color:var(--lime);letter-spacing:-0.02em}
+  .stat-label{font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em}
+
+  /* SECTION LABELS */
+  .sec-label{font-size:11px;font-weight:600;color:var(--lime);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .sec-label::after{content:'';flex:1;max-width:40px;height:1px;background:var(--lime);opacity:0.4}
+  h2.sec-title{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-0.025em;margin-bottom:48px;line-height:1.15}
+
+  /* ABOUT */
+  #about{border-bottom:1px solid var(--border)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .about-text p{color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:16px}
+  .about-text p:last-child{margin-bottom:0}
+  .about-text strong{color:var(--text);font-weight:600}
+  .about-right{}
+  .edu-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:14px;position:relative;overflow:hidden}
+  .edu-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--lime)}
+  .edu-inst{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+  .edu-deg{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .edu-meta{display:flex;justify-content:space-between;align-items:center}
+  .edu-cgpa{font-size:13px;color:var(--lime);font-weight:600}
+  .edu-year{font-size:11px;color:var(--muted2)}
+
+  /* SKILLS */
+  #skills{border-bottom:1px solid var(--border);background:var(--bg2)}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .skill-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:24px}
+  .skill-icon{width:38px;height:38px;border-radius:8px;background:rgba(184,239,67,0.1);border:1px solid rgba(184,239,67,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:18px}
+  .skill-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{background:var(--bg4);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:4px 10px;border-radius:100px;letter-spacing:0.03em}
+
+  /* EXPERIENCE */
+  #experience{border-bottom:1px solid var(--border)}
+  .timeline{position:relative;padding-left:24px}
+  .timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--border)}
+  .tl-item{position:relative;margin-bottom:40px}
+  .tl-item:last-child{margin-bottom:0}
+  .tl-dot{position:absolute;left:-29px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--lime);border:2px solid var(--bg)}
+  .tl-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;gap:16px;flex-wrap:wrap}
+  .tl-role{font-size:15px;font-weight:600;color:var(--text)}
+  .tl-date{font-size:11px;color:var(--muted2);background:var(--bg3);border:1px solid var(--border);padding:3px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0}
+  .tl-company{font-size:13px;color:var(--lime);margin-bottom:10px}
+  .tl-desc{font-size:13px;color:var(--muted);line-height:1.75}
+
+  /* PROJECTS */
+  #projects{border-bottom:1px solid var(--border);background:var(--bg2)}
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .proj-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:24px;transition:border-color 0.2s}
+  .proj-card:hover{border-color:var(--muted2)}
+  .proj-chip{display:inline-block;background:rgba(184,239,67,0.1);color:var(--lime);font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:14px}
+  .proj-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.35}
+  .proj-desc{font-size:13px;color:var(--muted);line-height:1.75}
+  .proj-year{font-size:11px;color:var(--muted2);margin-top:14px}
+
+  /* ACHIEVEMENTS */
+  #achievements{border-bottom:1px solid var(--border)}
+  .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .ach-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start}
+  .ach-icon{color:var(--lime);font-size:20px;margin-top:2px;flex-shrink:0}
+  .ach-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+  .ach-detail{font-size:12px;color:var(--muted);line-height:1.6}
+
+  /* PUBLICATIONS */
+  #publications{border-bottom:1px solid var(--border);background:var(--bg2)}
+  .pub-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start}
+  .pub-num{font-size:32px;font-weight:700;color:rgba(184,239,67,0.15);line-height:1;flex-shrink:0;width:40px}
+  .pub-info{}
+  .pub-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.4}
+  .pub-meta{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .pub-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--lime);font-weight:600;letter-spacing:0.04em;text-transform:uppercase}
+  .pub-link svg{width:12px;height:12px}
+
+  /* CONTACT */
+  #contact{padding-bottom:80px}
+  .contact-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:56px 48px;text-align:center}
+  .contact-card h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.025em;margin-bottom:14px}
+  .contact-card p{color:var(--muted);max-width:480px;margin:0 auto 36px;font-size:15px}
+  .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .contact-link{display:flex;align-items:center;gap:8px;background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text);transition:border-color 0.2s}
+  .contact-link:hover{border-color:var(--lime);color:var(--lime)}
+  .contact-link svg{width:16px;height:16px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:24px 5%;text-align:center}
+  footer p{font-size:12px;color:var(--muted2)}
+  footer span{color:var(--lime)}
+
+  @media(max-width:768px){
+    .about-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .contact-card{padding:36px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Feraz Rab</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Awards</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="mailto:ferazrab98@gmail.com" class="nav-cta">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="inner">
+    <div class="hero-tag">
+      <span class="hero-dot"></span>
+      Open to Summer 2026 Research Internships
+    </div>
+    <h1>Semiconductor<br/>Engineer &amp; <span>Researcher</span></h1>
+    <p class="hero-sub">M.Tech candidate at IISc–NTU. Building next-gen devices at the intersection of 2D materials, nanoelectronics, and cleanroom fabrication.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#experience" class="btn-ghost">View My Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">9.35</div><div class="stat-label">B.Tech CGPA (NIT DGP)</div></div>
+      <div class="stat"><div class="stat-num">3×</div><div class="stat-label">Gold Medal recipient</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">IIT Research Internships</div></div>
+      <div class="stat"><div class="stat-num">1</div><div class="stat-label">Elsevier Book Chapter</div></div>
+      <div class="stat"><div class="stat-num">Top 80</div><div class="stat-label">OPJEMS Scholar (India)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="sec-label">About Me</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="sec-title" style="margin-bottom:24px">Fabricating the future,<br/>one wafer at a time.</h2>
+        <p>I'm a <strong>dual-degree M.Tech student</strong> in Semiconductor Technology at the <strong>Indian Institute of Science (Bangalore)</strong> and <strong>National Taiwan University</strong>, with a background in Metallurgical &amp; Materials Engineering from NIT Durgapur.</p>
+        <p>My research interests lie in <strong>2D materials</strong>, advanced device architectures, and process integration — from thin-film deposition and lithography to characterization and yield analysis. I've worked hands-on in ISO-certified cleanrooms across India and Taiwan.</p>
+        <p>Outside the fab, I'm driven by the challenge of pushing beyond Moore's Law — whether through 3D IC stacking, novel TCO materials, or exploring next-generation interconnect solutions.</p>
+      </div>
+      <div class="about-right">
+        <div class="edu-card">
+          <div class="edu-inst">Indian Institute of Science &amp; National Taiwan University</div>
+          <div class="edu-deg">M.Tech in Semiconductor Technology · IISc–NTU Dual Degree</div>
+          <div class="edu-meta">
+            <span class="edu-cgpa">CGPA: 7.80 / 10</span>
+            <span class="edu-year">July 2025 – May 2027</span>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-inst">National Institute of Technology, Durgapur</div>
+          <div class="edu-deg">B.Tech in Metallurgical &amp; Materials Engineering</div>
+          <div class="edu-meta">
+            <span class="edu-cgpa">CGPA: 9.35 / 10 · Gold Medalist</span>
+            <span class="edu-year">Dec 2020 – May 2024</span>
+          </div>
+        </div>
+        <div style="margin-top:20px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:18px 20px">
+          <div style="font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px">Certifications</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="tag" style="color:var(--lime);border-color:rgba(184,239,67,0.25)">Six Sigma Yellow Belt</span>
+            <span class="tag">Kennesaw State University</span>
+            <span class="tag">OPJEMS Scholar 2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="inner">
+    <div class="sec-label">Technical Skills</div>
+    <h2 class="sec-title">Full-stack fab expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-title">Device Fabrication</div>
+        <div class="skill-tags">
+          <span class="tag">Lithography</span><span class="tag">Ion Implantation</span><span class="tag">Thin-film Deposition</span><span class="tag">PVD / CVD</span><span class="tag">Dry &amp; Wet Etching</span><span class="tag">CMP</span><span class="tag">Cleanroom Protocols</span><span class="tag">Process Integration</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔬</div>
+        <div class="skill-title">Characterization</div>
+        <div class="skill-tags">
+          <span class="tag">SEM</span><span class="tag">TEM</span><span class="tag">XPS</span><span class="tag">AFM</span><span class="tag">XRD</span><span class="tag">UV-Vis</span><span class="tag">FTIR</span><span class="tag">PL</span><span class="tag">PDS</span><span class="tag">Probe Station</span><span class="tag">Confocal Microscopy</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📦</div>
+        <div class="skill-title">Packaging &amp; Testing</div>
+        <div class="skill-tags">
+          <span class="tag">Wafer Dicing</span><span class="tag">Wire Bonding</span><span class="tag">Plasma Cleaning</span><span class="tag">DC Probe Station</span><span class="tag">Soldering</span><span class="tag">3D Printing</span><span class="tag">Climatic Chambers</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-title">Yield &amp; Data Eng.</div>
+        <div class="skill-tags">
+          <span class="tag">SPC</span><span class="tag">DOE</span><span class="tag">Six Sigma</span><span class="tag">Lean Manufacturing</span><span class="tag">Failure Analysis</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <div class="skill-title">Software &amp; Tools</div>
+        <div class="skill-tags">
+          <span class="tag">MATLAB</span><span class="tag">Silvaco TCAD</span><span class="tag">SEMulator3D</span><span class="tag">Oracle ERP</span><span class="tag">OriginPro</span><span class="tag">JMP</span><span class="tag">MS Office</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="inner">
+    <div class="sec-label">Experience</div>
+    <h2 class="sec-title">Where I've worked</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <span class="tl-role">Graduate Engineer Trainee</span>
+          <span class="tl-date">Aug 2024 – Jun 2025</span>
+        </div>
+        <div class="tl-company">Hindalco Industries, Aditya Birla Group · Vadodara</div>
+        <div class="tl-desc">Led shift activities during commissioning of the Copper Tube Greenfield Project. Assisted in process validation, equipment installation and calibration, and trial runs across the full copper value chain.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <span class="tl-role">Indo-Taiwan Capacity Building – Semiconductor Mfg.</span>
+          <span class="tl-date">Jun 2024 – Jul 2024</span>
+        </div>
+        <div class="tl-company">NTHU, Taiwan &amp; IIT Hyderabad</div>
+        <div class="tl-desc">Hands-on cleanroom training covering thin-film deposition, lithography, etching, ion implantation, and metallization — integrating process knowledge with device physics and yield optimization.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <span class="tl-role">Summer Research Intern</span>
+          <span class="tl-date">May 2023 – Jul 2023</span>
+        </div>
+        <div class="tl-company">Indian Institute of Technology, Hyderabad</div>
+        <div class="tl-desc">Research internship focusing on advanced materials and device characterization.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <span class="tl-role">Summer Research Intern</span>
+          <span class="tl-date">May 2022 – Jul 2022</span>
+        </div>
+        <div class="tl-company">Indian Institute of Technology, Bombay · Mumbai</div>
+        <div class="tl-desc">Research internship at one of India's premier technical institutions, gaining early exposure to advanced lab techniques and materials research.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="inner">
+    <div class="sec-label">Projects</div>
+    <h2 class="sec-title">Selected research work</h2>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-chip">Thin Films</div>
+        <div class="proj-title">Optimization of SnO₂ Thin-Film for TCO Applications</div>
+        <div class="proj-desc">Deposited SnO₂ thin films on quartz substrates via sputtering. Investigated the effect of RF power and gas partial pressure to optimize deposition conditions for transparent conductive oxide performance and film quality.</div>
+        <div class="proj-year">Aug 2025 – Nov 2025 · IISc</div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-chip">3D Integration</div>
+        <div class="proj-title">Wafer-to-Wafer Bonding for 3D IC Integration</div>
+        <div class="proj-desc">Analyzed W2W bonding processes focusing on alignment, interface quality, stress, and yield. Compared with flip-chip and die-to-wafer techniques, demonstrating how 3D stacking overcomes interconnect scaling limits beyond Moore's Law.</div>
+        <div class="proj-year">Aug 2025 – Nov 2025 · IISc</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="inner">
+    <div class="sec-label">Awards &amp; Honours</div>
+    <h2 class="sec-title">Recognition</h2>
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-icon">🥇</div>
+        <div>
+          <div class="ach-name">IIM Student Prize 2024</div>
+          <div class="ach-detail">Awarded by the Indian Institute of Metals for ranking among the top 3 CGPAs across all NITs and universities in India.</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏅</div>
+        <div>
+          <div class="ach-name">Institute Gold Medal</div>
+          <div class="ach-detail">Highest CGPA in Metallurgical &amp; Materials Engineering at NIT Durgapur.</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <div class="ach-name">Smt. Tarulata Sinha Memorial Gold Medal</div>
+          <div class="ach-detail">Awarded for overall academic excellence and top departmental performance.</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">⚡</div>
+        <div>
+          <div class="ach-name">Six Sigma Yellow Belt</div>
+          <div class="ach-detail">Certified by Kennesaw State University in process optimization and quality control methodologies.</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🌟</div>
+        <div>
+          <div class="ach-name">OPJEMS Scholar 2022</div>
+          <div class="ach-detail">Selected among the top 80 engineering students in India by JSW Group for academic and leadership excellence.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="inner">
+    <div class="sec-label">Publications</div>
+    <h2 class="sec-title">Research output</h2>
+    <div class="pub-card">
+      <div class="pub-num">01</div>
+      <div class="pub-info">
+        <div class="pub-title">Potential and Perspectives on Additive Manufacturing of High-Entropy Alloys for Ballistic Impact Applications</div>
+        <div class="pub-meta">Rab, F. &amp; Saha, M. · <em>High-Entropy Alloys: Additive Manufacturing, Ballistic Impact Response and Dynamic Mechanical Applications</em>, Elsevier, Chapter 9 · 2026</div>
+        <a href="#" class="pub-link">
+          View Publication
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="#B8EF43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <div class="contact-card">
+      <h2>Let's build something<br/><span style="color:var(--lime)">remarkable.</span></h2>
+      <p>Seeking Summer 2026 research internships (May–July) in nanoelectronics, 2D materials, or advanced semiconductor devices. Open to collaborations worldwide.</p>
+      <div class="contact-links">
+        <a href="mailto:ferazrab98@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 8 10-8"/></svg>
+          ferazrab98@gmail.com
+        </a>
+        <a href="mailto:ferazrab@iisc.ac.in" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 8 10-8"/></svg>
+          ferazrab@iisc.ac.in
+        </a>
+        <a href="tel:+917597688547" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 7.22 7.22l.89-.89a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          +91 75976 88547
+        </a>
+        <a href="https://www.linkedin.com/in/feraz-rab-75fhfrr5yt/" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Feraz Rab · Built with <span>♥</span> · Semiconductor Engineer &amp; Researcher</p>
+</footer>
+
+</body>
+</html>
